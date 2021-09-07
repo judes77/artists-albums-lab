@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+
+<section class="content">
+	{% for album in albums %}	
+	<div class="album-details">
+		<h2><a href="/albums/{{album.id}}">{{ album.title }}</a></h2>
+
+		<li>{{ album.artist.name }} - {{ album.year }}</li>
+
+		<form class="delete-form" action="/albums/{{album.id}}/delete" method="POST">
+			<button class="trash-button"><i class="fa fa-trash-o fa-3x" style="color: darkmagenta;" aria-hidden="true"></i></button>
+		  </form>
+
+	</div>
+	{% endfor %}
+
+</section>
+{% endblock %}
